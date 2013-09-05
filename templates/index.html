@@ -7,15 +7,23 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
 
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/application.css">
+        <link rel="stylesheet" href="js/vendor/jQuery-File-Upload/css/jquery.fileupload-ui.css">
 
         <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
     </head>
     <body>
     
         <div id="map"></div>
+
+        <div class="actions-panel">
+            <a href="#" class="btn btn-primary btn-block btn-lg fileinput-button">
+                <i class="icon-location"></i>
+                Subir foto
+
+                <input id="fileupload" type="file" name="files[]" multiple="">
+            </a>
+        </div>
         
         </div> <!-- /container -->        
 
@@ -23,8 +31,12 @@
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
 
         <script src="js/vendor/bootstrap.min.js"></script>
+
         <script src="http://maps.googleapis.com/maps/api/js?sensor=true&language=es" type="text/javascript"></script>
         <script src="js/vendor/gmap3.js"></script>
+
+        <script src="js/vendor/jQuery-File-Upload/js/vendor/jquery.ui.widget.js"></script>
+        <script src="js/vendor/jQuery-File-Upload/js/jquery.fileupload.js"></script>
 
         <script src="js/main.js"></script>
     </body>
