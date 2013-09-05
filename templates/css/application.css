@@ -6376,6 +6376,7 @@ td.visible-print {
   width: 100%;
   height: 100%;
   background: url(../img/dummy-map.png) center center;
+  background-size: cover;
   z-index: -1000;
 }
 .actions-panel {
