@@ -1,8 +1,17 @@
+// Librerías
 @import "/bootstrap/bootstrap.less";
 @import "/bootstrap/theme.less";
-
 @import "../css/linecons.css";
 
+// Mixins
+.transform(@t) {
+  -webkit-transform: @t;
+      -ms-transform: @t; // IE9+
+          transform: @t;
+}
+
+
+// Estilos
 #map {
 	position: absolute;
 	width: 100%;
@@ -20,7 +29,32 @@
 	padding: 1em;
 
 	background: #333;
+
+	> div {
+		display: none;
+
+		&.in {
+			display: block;
+		}
+	}
 }
 
+#upload-preview {
+	display: inline-block;
+	padding: 10px;
+	
+	background: #fff;
+	border: 1px solid #ccc;
+	border-radius: 5px;
 
+	.box-shadow(2px 5px 15px rgba(0,0,0,.6));
+	.transform(rotate(10deg) translate(-30px,-10px));
 
+	&:after {
+
+	}
+	
+	img {
+		max-width: 150px;
+	}
+}

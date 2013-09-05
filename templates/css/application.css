@@ -6385,3 +6385,24 @@ td.visible-print {
   padding: 1em;
   background: #333;
 }
+.actions-panel > div {
+  display: none;
+}
+.actions-panel > div.in {
+  display: block;
+}
+#upload-preview {
+  display: inline-block;
+  padding: 10px;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  -webkit-box-shadow: 2px 5px 15px rgba(0, 0, 0, 0.6);
+  box-shadow: 2px 5px 15px rgba(0, 0, 0, 0.6);
+  -webkit-transform: rotate(10deg) translate(-30px, -10px);
+  -ms-transform: rotate(10deg) translate(-30px, -10px);
+  transform: rotate(10deg) translate(-30px, -10px);
+}
+#upload-preview img {
+  max-width: 150px;
+}

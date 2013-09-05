@@ -16,13 +16,31 @@
     
         <div id="map"></div>
 
-        <div class="actions-panel">
-            <a href="#" class="btn btn-primary btn-block btn-lg fileinput-button">
-                <i class="icon-location"></i>
-                Subir foto
+        <div id="upload-preview">
+            <img src="http://placehold.it/200x200" alt="">
+        </div>
 
-                <input id="fileupload" type="file" name="files[]" multiple="">
-            </a>
+        <div class="actions-panel">
+            <div class="step-upload">
+                <a href="#" class="btn btn-primary btn-block btn-lg fileinput-button">
+                    <i class="icon-location"></i>
+                    Subir foto
+                
+                    <input id="fileupload-input" type="file" name="files[]" multiple="">
+                </a>
+            </div>
+            <div class="step-positioning in">
+                <div class="row">
+                    <div class="col-xs-8">
+                        <a href="#" class="btn btn-success btn-lg btn-block">Listo</a>
+                    </div>
+                    <div class="col-xs-4">
+                        <a href="#" class="btn btn-danger btn-lg btn-block">
+                            <i class="icon-trash"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
         
         </div> <!-- /container -->        
