@@ -16,29 +16,36 @@
     
         <div id="map"></div>
 
-        <div id="upload-preview">
-            <img src="http://placehold.it/200x200" alt="">
-        </div>
-
         <div class="actions-panel">
-            <div class="step-upload">
-                <a href="#" class="btn btn-primary btn-block btn-lg fileinput-button">
-                    <i class="icon-location"></i>
-                    Subir foto
-                
-                    <input id="fileupload-input" type="file" name="files[]" multiple="">
-                </a>
-            </div>
-            <div class="step-positioning in">
-                <div class="row">
-                    <div class="col-xs-8">
-                        <a href="#" class="btn btn-success btn-lg btn-block">Listo</a>
+            <div class="inner">
+                <!-- Paso 1: file input -->
+                <div class="step-upload">
+                    <a href="#" class="btn btn-primary btn-block btn-lg fileinput-button">
+                        <i class="icon-location"></i>
+                        Subir foto
+                    
+                        <input id="fileupload-input" type="file" name="files[]" multiple="">
+                    </a>
+                </div>
+                <!-- Paso 2: posicionar en el mapa, mostrar preview -->
+                <div class="step-positioning in">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <div id="upload-preview">
+                                <img src="http://placehold.it/200x200" alt="">
+                            </div>
+                        </div>
+                        <div class="col-xs-8">
+                            <p>Ubicá la foto en el mapa.</p>
+                            <a href="#" class="btn btn-success btn-lg btn-block">Listo</a>
+                        </div>
                     </div>
-                    <div class="col-xs-4">
-                        <a href="#" class="btn btn-danger btn-lg btn-block">
-                            <i class="icon-trash"></i>
-                        </a>
-                    </div>
+                </div>
+                <!-- Paso 3: chequear duplicados -->
+                <div class="step-upload ">
+                    <a href="#" class="btn btn-default btn-block btn-lg">
+                        No, marqué un lugar nuevo
+                    </a>
                 </div>
             </div>
         </div>
