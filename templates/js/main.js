@@ -35,6 +35,10 @@ $(function () {
     $('#fileupload-input').fileupload({
         url: url,
         dataType: 'json',
+        autoUpload: false,
+        acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
+        maxFileSize: 5000000, // 5 MB
+        loadImageMaxFileSize: 15000000, // 15MB
         done: function (e, data) {
             $.each(data.result.files, function (index, file) {
                 $('<p/>').text(file.name).appendTo('#files');
