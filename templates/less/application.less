@@ -1,15 +1,15 @@
 // Librerías
 @import "/bootstrap/bootstrap.less";
-@import "/bootstrap/theme.less";
+// @import "/bootstrap/theme.less";
 
-// Flat ui
+// Flat ui theme
 @import "/flatui/flat-ui.less";
 
 // Iconos
 @import "../css/linecons.css";
 
 // Webfont
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600);
+@import url("https://fonts.googleapis.com/css?family=Lato:400,700,700italic,900,400italic,300");
 
 
 // Mixins
@@ -27,6 +27,9 @@
 
 
 // Estilos
+
+@font-family-sans-serif: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
 #map {
 	position: absolute;
 	width: 100%;
@@ -80,28 +83,31 @@
 }
 
 html.borderimage .actions-panel {
-	border-width: 6px 10px 13px 8px;
-	.border-image(url(../img/paper-w-border.png) 6 10 13 8 round);
+	// border-width: 6px 9px 11px 8px;
+	// .border-image(url(../img/paper-border.png) 6 9 11 8 round);
+	
+	border-width: 10px 0 0 0;
+	.border-image(url(../img/paper-border-top.png) 10 0 0 0 round);
 }
 
 #upload-preview {
 	display: inline-block;
-	padding: 10px;
+	padding: 3px;
 
-
-	
 	background: #fff;
 	border: 1px solid #ccc;
 	border-radius: 5px;
 
-	.box-shadow(2px 5px 15px rgba(0,0,0,.6));
-	.transform(rotate(10deg) translate(-30px,-10px));
+	width: 100%;
+
+	img {
+		max-width: 100%;
+	}
+
+	// .box-shadow(2px 5px 15px rgba(0,0,0,.6));
+	// .transform(rotate(10deg) translate(-30px,-10px));
 
 	&:after {
 
-	}
-	
-	img {
-		max-width: 150px;
 	}
 }
