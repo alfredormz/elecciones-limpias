@@ -2,8 +2,14 @@
 @import "/bootstrap/bootstrap.less";
 @import "/bootstrap/theme.less";
 
+// Flat ui
+@import "/flatui/flat-ui.less"
+
 // Iconos
 @import "../css/linecons.css";
+
+// Webfont
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600);
 
 
 // Mixins
@@ -11,6 +17,12 @@
   -webkit-transform: @t;
       -ms-transform: @t; // IE9+
           transform: @t;
+}
+
+.border-image(@border){
+	-webkit-border-image: @border;
+	   -moz-border-image: @border;
+	        border-image: @border;
 }
 
 
@@ -26,26 +38,57 @@
 	z-index: -1000;
 }
 
-.actions-panel {
+#video-bg {
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+	min-width: 100%;
+	min-height: 100%;
+	width: auto;
+	height: auto;
+	z-index: -1000;
+	overflow: hidden;
+}
+
+#video-overlay {
+	display: block;
+	position: absolute;
 	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background: url(../img/overlay-pattern2.png);
+}
+
+.actions-panel {
 	position: absolute;
 	bottom: 0;
-	padding: 1em;
+	width: 100%;
+	
+	.inner {
+		padding: 1em;
+		background: url(../img/paper.png) center;
 
-	background: #333;
+		> div {
+			display: none;
 
-	> div {
-		display: none;
-
-		&.in {
-			display: block;
+			&.in {
+				display: block;
+			}
 		}
 	}
+}
+
+html.borderimage .actions-panel {
+	border-width: 6px 10px 13px 8px;
+	.border-image(url(../img/paper-w-border.png) 6 10 13 8 round);
 }
 
 #upload-preview {
 	display: inline-block;
 	padding: 10px;
+
+
 	
 	background: #fff;
 	border: 1px solid #ccc;
