@@ -16,10 +16,10 @@
     
         <div id="map"></div>
 
-        <div class="actions-panel">
-            <div class="inner">
+        <div class="submission-wrap">
+            <form id="submission-form" action="">
                 <!-- Paso 1: file input -->
-                <div class="step-upload">
+                <div class="step" id="step-fileinput">
                     <a href="#" class="btn btn-primary btn-block btn-lg fileinput-button">
                         <i class="icon-location"></i>
                         Subir foto
@@ -28,7 +28,7 @@
                     </a>
                 </div>
                 <!-- Paso 2: posicionar en el mapa, mostrar preview -->
-                <div class="step-positioning in">
+                <div class="step" id="step-locate">
                     <div class="row">
                         <div class="col-xs-4">
                             <div id="upload-preview">
@@ -36,34 +36,37 @@
                             </div>
                         </div>
                         <div class="col-xs-8">
-                            <p>Ubicá la foto en el mapa.</p>
+                            <p>Ubicá la foto en el mapa arrastrando el marcador.</p>
                             <a href="#" class="btn btn-success btn-lg btn-block">Listo</a>
                         </div>
                     </div>
                 </div>
                 <!-- Paso 3: chequear duplicados -->
-                <div class="step-upload ">
+                <div class="step" id="step-upload">
+                    <p></p>
                     <a href="#" class="btn btn-default btn-block btn-lg">
                         No, marqué un lugar nuevo
                     </a>
                 </div>
-            </div>
+            </form>
         </div>
         
         </div> <!-- /container -->        
 
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
+        <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')</script>-->
+
+        <script src="js/vendor/jquery-1.10.1.min.js"></script>
 
         <script src="js/vendor/bootstrap.min.js"></script>
 
         <script src="http://maps.googleapis.com/maps/api/js?sensor=true&language=es" type="text/javascript"></script>
         <script src="js/vendor/gmap3.js"></script>
 
-        <script src="js/vendor/fuel-ux/wizard.js"></script>
 
         <script src="js/vendor/jQuery-File-Upload/js/vendor/jquery.ui.widget.js"></script>
         <script src="js/vendor/jQuery-File-Upload/js/jquery.fileupload.js"></script>
+        <script src="js/vendor/jquery.easyWizard/lib/jquery.easyWizard.js"></script>
 
         <script src="js/main.js"></script>
     </body>

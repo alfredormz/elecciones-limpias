@@ -1,3 +1,6 @@
+// Assets
+// ========================
+
 // Librerías
 @import "/bootstrap/bootstrap.less";
 // @import "/bootstrap/theme.less";
@@ -10,7 +13,6 @@
 
 // Webfont
 @import url("https://fonts.googleapis.com/css?family=Lato:400,700,700italic,900,400italic,300");
-
 
 // Mixins
 .transform(@t) {
@@ -25,10 +27,18 @@
 	        border-image: @border;
 }
 
-
-// Estilos
-
+// Overrides
 @font-family-sans-serif: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+
+
+
+// Estilos de la app
+// =========================
+
+
+// Mapa principal
+// -------------------------
 
 #map {
 	position: absolute;
@@ -41,54 +51,34 @@
 	z-index: -1000;
 }
 
-#video-bg {
-	position: absolute;
-	bottom: 0px;
-	right: 0px;
-	min-width: 100%;
-	min-height: 100%;
-	width: auto;
-	height: auto;
-	z-index: -1000;
-	overflow: hidden;
-}
 
-#video-overlay {
-	display: block;
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	top: 0;
-	left: 0;
-	background: url(../img/overlay-pattern2.png);
-}
+// Submission form
+// -------------------------
 
-.actions-panel {
+.submission-wrap {
 	position: absolute;
 	bottom: 0;
 	width: 100%;
 	
-	.inner {
+	.step {
 		padding: 1em;
 		background: url(../img/paper.png) center;
+		
+		// display: none;
 
-		> div {
-			display: none;
-
-			&.in {
-				display: block;
-			}
-		}
+		// &.in {
+		// 	display: block;
+		// }
 	}
 }
 
-html.borderimage .actions-panel {
-	// border-width: 6px 9px 11px 8px;
-	// .border-image(url(../img/paper-border.png) 6 9 11 8 round);
-	
-	border-width: 10px 0 0 0;
-	.border-image(url(../img/paper-border-top.png) 10 0 0 0 round);
-}
+	html.borderimage .submission-wrap {
+		// border-width: 6px 9px 11px 8px;
+		// .border-image(url(../img/paper-border.png) 6 9 11 8 round);
+		
+		border-width: 10px 0 0 0;
+		.border-image(url(../img/paper-border-top.png) 10 0 0 0 round);
+	}
 
 #upload-preview {
 	display: inline-block;
@@ -110,4 +100,32 @@ html.borderimage .actions-panel {
 	&:after {
 
 	}
+}
+
+
+
+
+// Estilos de la landing page
+// =========================
+
+#video-bg {
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+	min-width: 100%;
+	min-height: 100%;
+	width: auto;
+	height: auto;
+	z-index: -1000;
+	overflow: hidden;
+}
+
+#video-overlay {
+	display: block;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background: url(../img/overlay-pattern2.png);
 }

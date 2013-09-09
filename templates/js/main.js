@@ -1,5 +1,17 @@
 $(document).ready(function(){
 
+// Tabs del submisison form
+// -------------------------
+
+$("#submission-form").easyWizard({
+    showSteps: false,
+    showButtons: false,
+    submitButton: false
+});
+
+// Mapa
+// -------------------------
+
 $("#map").gmap3({
 	// Geolocalizar dispositivo
 	getgeoloc: {

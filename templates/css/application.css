@@ -10312,6 +10312,32 @@ body.vjs-full-window {
   background-size: cover;
   z-index: -1000;
 }
+.submission-wrap {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+.submission-wrap .step {
+  padding: 1em;
+  background: url(../img/paper.png) center;
+}
+html.borderimage .submission-wrap {
+  border-width: 10px 0 0 0;
+  -webkit-border-image: url(../img/paper-border-top.png) 10 0 0 0 round;
+  -moz-border-image: url(../img/paper-border-top.png) 10 0 0 0 round;
+  border-image: url(../img/paper-border-top.png) 10 0 0 0 round;
+}
+#upload-preview {
+  display: inline-block;
+  padding: 3px;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+}
+#upload-preview img {
+  max-width: 100%;
+}
 #video-bg {
   position: absolute;
   bottom: 0px;
@@ -10331,36 +10357,4 @@ body.vjs-full-window {
   top: 0;
   left: 0;
   background: url(../img/overlay-pattern2.png);
-}
-.actions-panel {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-}
-.actions-panel .inner {
-  padding: 1em;
-  background: url(../img/paper.png) center;
-}
-.actions-panel .inner > div {
-  display: none;
-}
-.actions-panel .inner > div.in {
-  display: block;
-}
-html.borderimage .actions-panel {
-  border-width: 10px 0 0 0;
-  -webkit-border-image: url(../img/paper-border-top.png) 10 0 0 0 round;
-  -moz-border-image: url(../img/paper-border-top.png) 10 0 0 0 round;
-  border-image: url(../img/paper-border-top.png) 10 0 0 0 round;
-}
-#upload-preview {
-  display: inline-block;
-  padding: 3px;
-  background: #fff;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  width: 100%;
-}
-#upload-preview img {
-  max-width: 100%;
 }
