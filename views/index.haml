@@ -1,17 +1,18 @@
 #map
 
-#upload-preview
-
-.actions-panel
-  .step-upload
-    %a.btn.btn-primary.btn-block.btn-lg.fileinput-button
-      %i.icon-location
-      Subir foto
-      %input#fileupload-input{type: "file", name: "files", multipe: "" }
-  .step-positioning.in
-    .row
-      .col-xs-8
-        %a#upload.btn.btn-success.btn-lg.btn-block{href: "#"} Listo
-      .col-xs-4
-        %a#cancel.btn.btn-danger.btn-lg.btn-block
-          %i.icon-trash
+.submission-wrap
+  %form#submission-form
+    .step
+      %a.btn.btn-primary.btn-block.btn-lg.fileinput-button
+        %i.icon-location
+        Subir foto
+        %input#fileupload-input{type: "file", name: "files", multipe: "" }
+    .step
+      .row
+        .col-xs-4
+          #upload-preview
+        .col-xs-8
+          %p Ubicá la foto en el mapa arrastrando el marcador.
+          %a.btn.btn-success.btn-lg.btn-block{href: "#"} Listo
+    .step
+      %a.btn.btn-default.btn-block.btn-lg{href: "#"} No, marqué un lugar nuevo

@@ -40,39 +40,43 @@ $("#submission-form").easyWizard({
 
 // File input
 // -------------------------
-
-var uploadUrl = window.location.hostname === 'blueimp.github.io' ?
-            '//jquery-file-upload.appspot.com/' : 'server/php/';
 $('#fileupload-input').fileupload({
-    url: uploadUrl,
     dataType: 'json',
-    autoUpload: false,
-    acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
-    maxFileSize: 5000000, // 5 MB
-    loadImageMaxFileSize: 15000000, // 15MB
-    done: function (e, data) {
-        $.each(data.result.files, function (index, file) {
-            $('<p/>').text(file.name).appendTo('#files');
+    url: '/upload',
+    previewMaxWidth: 200,
+    previewMaxHeight: 200,
+    previewCrop: true,
+    add: function(e, data){
+        $.each(data.files, function (index, file) {
+            var loadingImage = loadImage(
+            file,
+            function (img) {
+                $("#upload-preview").html(img);
+            },
+            {maxWidth: 200, maxHeight: 200, crop: true}
+            );
+            if(loadingImage){
+                $(".step-upload").hide();
+                $(".step-positioning").show();
+            }
+
+            $('#upload').click(function () {
+                data.submit();
+            });
+            $('#cancel').click(function () {
+                data.abort();
+                $(".step-upload").show();
+                $(".step-positioning").hide();
+                $("#upload-preview").html("");
+            });
+
         });
     },
-    progressall: function (e, data) {
-        var progress = parseInt(data.loaded / data.total * 100, 10);
-        $('#progress .progress-bar').css(
-            'width',
-            progress + '%'
-        );
+    done: function(e, data){
+        $(".step-upload").show();
+        $(".step-positioning").hide();
+        $("#upload-preview").html("");
     }
-}).on('fileuploadprocessalways', function (e, data) {
-    var index = data.index,
-        file = data.files[index],
-        node = $("#preview");
-    if (file.preview) {
-        // node
-        //     .append('<br>')
-        //     .prepend(file.preview);
-        console.log(file);
-    }
-});
-
+  });
 
 }); // ~ Omega
