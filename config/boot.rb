@@ -15,5 +15,7 @@ $LOAD_PATH.unshift File.join(APP_ROOT, 'config')
   $LOAD_PATH.unshift File.join(APP_ROOT, 'app', dir)
 end
 
+require 'active_support/core_ext'
 require "environment" 
+require "app/models/submission"
 require "app"

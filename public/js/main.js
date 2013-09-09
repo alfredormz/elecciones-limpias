@@ -73,9 +73,6 @@ $('#fileupload-input').fileupload({
         });
     },
     done: function(e, data){
-        $(".step-upload").show();
-        $(".step-positioning").hide();
-        $("#upload-preview").html("");
     }
   });
 

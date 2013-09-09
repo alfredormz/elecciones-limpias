@@ -1,0 +1,4 @@
+.ruby-version
+.ruby-gemset
+db/*.db
+public/img/submissions/*

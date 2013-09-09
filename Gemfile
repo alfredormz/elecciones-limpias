@@ -5,6 +5,8 @@ gem "sequel"
 gem "haml"
 gem "rake"
 gem "omniauth-facebook"
+gem "sequel_paperclip"
+gem "activesupport"
 
 group :development do
   gem "pry"
