@@ -16,11 +16,14 @@ module EleccionesLimpias
     end
 
     post '/upload' do
-      {done: "ok"}.to_json
+      submission = Submission.create do |submission|
+        submission.photo = params[:photo][:tempfile]
+      end
+      {file_url: submission.photo.path(:small)}.to_json
     end
 
     use OmniAuth::Builder do
-      provider :facebook, "619229738100231", "300775d1ead230400279fcc4da9613aa"
+      provider :facebook, ENV['APP_ID'], ENV['APP_SECRET']
     end
   end
 end
