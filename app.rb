@@ -20,7 +20,7 @@ module EleccionesLimpias
     end
 
     use OmniAuth::Builder do
-      provider :facebook, "619229738100231", "300775d1ead230400279fcc4da9613aa"
+      provider :facebook, ENV['APP_ID'], ENV['APP_SECRET']
     end
   end
 end
