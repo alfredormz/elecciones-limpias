@@ -14,7 +14,11 @@ $("#map").gmap3({
                         options:{
                             center: latLng,
                             zoom: 16,
-                            mapTypeId: google.maps.MapTypeId.TERRAIN
+                            mapTypeId: google.maps.MapTypeId.TERRAIN,
+                            mapTypeControl: false,
+                            navigationControl: false,
+                            streetViewControl: false,
+                            overviewMapControl: false
                         }
                     }
                 });
@@ -37,16 +41,66 @@ $("#submission-form").easyWizard({
     submitButton: false,
     debug: true,
     after: function(wizardObj, prevStepObj, currentStepObj) {
-        if (currentStepObj) {
-            console.log(currentStepObj.attr('id'))
-        }
+        // Step 2 - locate
+        if (currentStepObj.attr('id') == 'step-locate') {
+            
+            var currentLatLng,
+                map = $("#map").gmap3('get'),
+                setSubmissionLatlng = function(latLng){
+                    console.log(latLng);
+                    $("#submission-lat").val( latLng.lat() );
+                    $("#submission-lng").val( latLng.lng() );
+                };
+
+            $("#step-locate-done").button('loading');
+
+            // Geolocalizar el dispositivo, agregar un marcador, refrescar los inputs de latlng
+            $("#map").gmap3({
+                getgeoloc: {
+                    callback : function(latLng){
+                        if (latLng) {
+                            currentLatLng = latLng
+                        }else{
+                            currentLatLng = map.getCenter()
+                        }
+
+                        setSubmissionLatlng(currentLatLng);
+
+                        $(this).gmap3({
+                            getmaxzoom:{ 
+                                latLng: currentLatLng,
+                                callback:function(zoom){
+                                    map.setCenter( currentLatLng );
+                                    map.setZoom( zoom - 1 );
+                                }
+                            },
+                            marker:{ 
+                                latLng: currentLatLng,
+                                options: { 
+                                    animation: google.maps.Animation.DROP,
+                                    draggable: true 
+                                },
+                                events: {
+                                    dragend: function(marker, event, context){
+                                        setSubmissionLatlng( marker.getPosition() );
+                                    }
+                                }
+                            }
+                        });
+
+                        $("#step-locate-done").button('reset');
+
+                    }
+                }
+            });
+        } // Fin step 2 - locate
     }
 });
 
 
 // File input
 // -------------------------
-$('#fileupload-input').fileupload({
+$('#submission-file').fileupload({
     dataType: 'json',
     url: '/upload',
     previewMaxWidth: 200,
