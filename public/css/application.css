@@ -10335,7 +10335,7 @@ html.borderimage .submission-wrap {
   border-radius: 5px;
   width: 100%;
 }
-#upload-preview img {
+#upload-preview canvas {
   max-width: 100%;
 }
 #video-bg {

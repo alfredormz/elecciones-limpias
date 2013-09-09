@@ -34,7 +34,13 @@ $("#map").gmap3({
 $("#submission-form").easyWizard({
     showSteps: false,
     showButtons: false,
-    submitButton: false
+    submitButton: false,
+    debug: true,
+    after: function(wizardObj, prevStepObj, currentStepObj) {
+        if (currentStepObj) {
+            console.log(currentStepObj.attr('id'))
+        }
+    }
 });
 
 
@@ -49,20 +55,18 @@ $('#fileupload-input').fileupload({
     add: function(e, data){
         $.each(data.files, function (index, file) {
             var loadingImage = loadImage(
-            file,
-            function (img) {
-                $("#upload-preview").html(img);
-            },
-            {maxWidth: 200, maxHeight: 200, crop: true}
+                file,
+                function (img) {
+                    $("#upload-preview").html(img);
+                },
+                { maxWidth: 150, maxHeight: 150, crop: true }
             );
             if(loadingImage){
-                $(".step-upload").hide();
-                $(".step-positioning").show();
+                $('#submission-form').easyWizard('nextStep');
             }
-
-            $('#upload').click(function () {
-                data.submit();
-            });
+            // $('#upload').click(function () {
+            //     data.submit();
+            // });
             $('#cancel').click(function () {
                 data.abort();
                 $(".step-upload").show();
@@ -73,9 +77,9 @@ $('#fileupload-input').fileupload({
         });
     },
     done: function(e, data){
-        $(".step-upload").show();
-        $(".step-positioning").hide();
+        // Mostrar el mapa con la foto recién cargada
         $("#upload-preview").html("");
+        $('#submission-form').easyWizard('nextStep');
     }
   });
 
