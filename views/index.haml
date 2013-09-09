@@ -6,13 +6,13 @@
       %a.btn.btn-primary.btn-block.btn-lg.fileinput-button
         %i.icon-location
         Subir foto
-        %input#fileupload-input{type: "file", name: "files", multipe: "" }
+        %input#fileupload-input{type: "file", name: "photo", multipe: "" }
     .step
       .row
         .col-xs-4
           #upload-preview
         .col-xs-8
           %p Ubicá la foto en el mapa arrastrando el marcador.
-          %a.btn.btn-success.btn-lg.btn-block{href: "#"} Listo
+          %a#upload.btn.btn-success.btn-lg.btn-block{href: "#"} Listo
     .step
       %a.btn.btn-default.btn-block.btn-lg{href: "#"} No, marqué un lugar nuevo
