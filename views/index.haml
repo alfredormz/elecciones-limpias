@@ -13,8 +13,16 @@
           #upload-preview
         .col-xs-8
           %p Ubicá la foto en el mapa arrastrando el marcador.
-          %a.btn.btn-success.btn-lg.btn-block{href: "#", id: "step-locate-done", data: {loading: {text: 'Ubicando...'}}} Listo
           %input{id: "submission-lat", type: "hidden"}
           %input{id: "submission-lng", type: "hidden"}
+          %button.btn.btn-success.btn-lg.btn-block{type: "submit"} Listo
+    / .step#step-refine
+    /   %p 
+    /   %a.btn.btn-default.btn-block.btn-lg{href: "#"} No, marqué un lugar nuevo
     .step#step-upload
-      %a.btn.btn-default.btn-block.btn-lg{href: "#"} No, marqué un lugar nuevo
+      .row
+        .col-xs-12
+          %p Estamos subiendo tu foto al mapa. ¡Gracias por el aporte!
+          #upload-progress.progress
+            .progress-bar
+    %button{id: "submission-cancel"}
