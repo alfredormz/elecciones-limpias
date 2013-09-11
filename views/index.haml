@@ -2,17 +2,27 @@
 
 .submission-wrap
   %form#submission-form
-    .step
+    .step#step-fileinput
       %a.btn.btn-primary.btn-block.btn-lg.fileinput-button
         %i.icon-location
         Subir foto
-        %input#fileupload-input{type: "file", name: "photo", multipe: "" }
-    .step
+        %input{id: "submission-file", type: "file", name: "files", multipe: "" }
+    .step#step-locate
       .row
         .col-xs-4
           #upload-preview
         .col-xs-8
           %p Ubicá la foto en el mapa arrastrando el marcador.
-          %a#upload.btn.btn-success.btn-lg.btn-block{href: "#"} Listo
-    .step
-      %a.btn.btn-default.btn-block.btn-lg{href: "#"} No, marqué un lugar nuevo
+          %input{id: "submission-lat", type: "hidden"}
+          %input{id: "submission-lng", type: "hidden"}
+          %button.btn.btn-success.btn-lg.btn-block{type: "submit"} Listo
+    / .step#step-refine
+    /   %p 
+    /   %a.btn.btn-default.btn-block.btn-lg{href: "#"} No, marqué un lugar nuevo
+    .step#step-upload
+      .row
+        .col-xs-12
+          %p Estamos subiendo tu foto al mapa. ¡Gracias por el aporte!
+          #upload-progress.progress
+            .progress-bar
+    %button{id: "submission-cancel"}
