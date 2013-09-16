@@ -14,15 +14,19 @@
     %link(href="images/apple-touch-icon.png" rel="apple-touch-icon-precomposed")
     %link(href="favicon.ico" rel="shortcut icon")
 
-
     %script{src: "js/vendor/modernizr-2.6.2-respond-1.1.0.min.js", type: "text/javascript"}
   %body
     = yield
 
-  %script(src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js" type="text/javascript")
+  %script(src="js/vendor/jquery-1.10.1.min.js" type="text/javascript")
+  %script(src="js/vendor/underscore-min.js" type="text/javascript")
+  %script(src="js/vendor/backbone-min.js" type="text/javascript")
+
   %script(src="/js/vendor/bootstrap.min.js" type="text/javascript")
+
   %script(src="http://maps.googleapis.com/maps/api/js?sensor=true&language=es" type="text/javascript")
-  %script(src="/js/vendor/gmap3.js" type="text/javascript")
+  %script(src="js/vendor/gmap3.js" type="text/javascript")
+
   %script(src="js/vendor/jQuery-File-Upload/js/vendor/jquery.ui.widget.js" type="text/javascript")
   %script(src="js/vendor/jQuery-File-Upload/js/jquery.fileupload.js" type="text/javascript")
   %script(src="js/vendor/load-image.min.js" type="text/javascript")
@@ -33,5 +37,7 @@
   %script(src="js/vendor/jQuery-File-Upload/js/jquery.fileupload-validate.js")
   %script(src="js/vendor/bootbox.js")
 
-  %script(src="js/main.js" type="text/javascript")
+
+  %script(src="js/elecciones-limpias.js" type="text/javascript")
+  %script(src="js/map.js" type="text/javascript")
 

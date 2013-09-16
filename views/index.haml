@@ -1,28 +1,36 @@
 #map
 
 .submission-wrap
-  %form#submission-form
-    .step#step-fileinput
-      %a.btn.btn-primary.btn-block.btn-lg.fileinput-button
-        %i.icon-location
-        Subir foto
-        %input{id: "submission-file", type: "file", name: "files", multipe: "" }
-    .step#step-locate
-      .row
-        .col-xs-4
-          #upload-preview
-        .col-xs-8
-          %p Ubicá la foto en el mapa arrastrando el marcador.
-          %input{id: "submission-lat", type: "hidden"}
-          %input{id: "submission-lng", type: "hidden"}
-          %button.btn.btn-success.btn-lg.btn-block{type: "submit"} Listo
-    / .step#step-refine
-    /   %p 
-    /   %a.btn.btn-default.btn-block.btn-lg{href: "#"} No, marqué un lugar nuevo
-    .step#step-upload
-      .row
-        .col-xs-12
-          %p Estamos subiendo tu foto al mapa. ¡Gracias por el aporte!
-          #upload-progress.progress
-            .progress-bar
-    %button{id: "submission-cancel"}
+  %form
+    %input{id: "submission-file", type: "file", name: "picture", multipe: "", style: "display: none;" }
+    %input{id: "submission-lat", type: "hidden", name: 'latitude'}
+    %input{id: "submission-lng", type: "hidden", name: 'longitude'}
+  .content
+
+%script{id: "choose-file-template", type: "text/template"}
+  .step#step-fileinput
+    %a#fileinput-button.btn.btn-primary.btn-block.btn-lg
+      %i.icon-location
+      Subir foto
+  %button{id: "submission-cancel"}
+
+%script{id: "show-preview-template", type: "text/template"}
+  .step#step-locate
+    .row
+      .col-xs-4
+        #upload-preview
+      .col-xs-8
+        %p Ubicá la foto en el mapa arrastrando el marcador.
+        %button.btn.btn-success.btn-lg.btn-block{type: "submit"} Listo
+
+%script{id: "step-three", type: "text/template"}
+  / .step#step-refine
+  /   %p 
+  /   %a.btn.btn-default.btn-block.btn-lg{href: "#"} No, marqué un lugar nuevo
+  .step#step-upload
+    .row
+      .col-xs-12
+        %p Estamos subiendo tu foto al mapa. ¡Gracias por el aporte!
+        #upload-progress.progress
+          .progress-bar
+
