@@ -9,6 +9,9 @@ $(document).ready(function(){
       callback : function(latLng){
         // Inicializar y centrar
         if (latLng){
+          $("#submission-lat").val(latLng.pb);
+          $("#submission-lng").val(latLng.qb);
+
           $(this).gmap3({
             map:{
               options:{
@@ -21,7 +24,20 @@ $(document).ready(function(){
                 overviewMapControl: false,
                 panControl: false
               }
-            }
+            },
+            marker: {
+              latLng: latLng,
+              options: {
+                draggable: true
+              },
+              events: {
+                dragend: function(marker){
+                  $("#submission-lat").val(marker.position.pb);
+                  $("#submission-lng").val(marker.position.qb);
+                }
+              }
+
+            },
           });
         }
         // O sino preguntar lugar al usuario 

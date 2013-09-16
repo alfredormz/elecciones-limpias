@@ -1,8 +1,8 @@
 #map
 
 .submission-wrap
-  %form
-    %input{id: "submission-file", type: "file", name: "picture", multipe: "", style: "display: none;" }
+  %form#submission-form{action: "/upload", method: "POST"}
+    %input{id: "submission-file", type: "file", name: "photo"}
     %input{id: "submission-lat", type: "hidden", name: 'latitude'}
     %input{id: "submission-lng", type: "hidden", name: 'longitude'}
   .content
@@ -21,7 +21,7 @@
         #upload-preview
       .col-xs-8
         %p Ubicá la foto en el mapa arrastrando el marcador.
-        %button.btn.btn-success.btn-lg.btn-block{type: "submit"} Listo
+        %button#upload.btn.btn-success.btn-lg.btn-block{type: "submit"} Listo
 
 %script{id: "step-three", type: "text/template"}
   / .step#step-refine

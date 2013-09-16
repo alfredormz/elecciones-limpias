@@ -22,13 +22,14 @@ eleccionesLimpias.ChooseFile = eleccionesLimpias.Wizard.extend({
 
   openDialog: function(e){
     e.preventDefault();
-    $("#submission-file").click();
+    this.$("#submission-file").trigger("click");
   },
 
   showPreview: function(e){
     this.nextStep = new eleccionesLimpias.ShowPreview({model: {file: e.target.files[0]}});
     this.nextStep.render();
   }
+
 
 });
 
@@ -45,11 +46,20 @@ eleccionesLimpias.ShowPreview = eleccionesLimpias.Wizard.extend({
       function (img) {
         this.$("#upload-preview").html(img);
       },
-      {maxWidth: 200}
+      { maxWidth: 200, maxHeight: 200, crop: true }
     );
     return this;
+  },
+  
+  events: {
+    "click #upload": "saveSubmission"
+  },
+
+  saveSubmission: function(e) {
+    $("form").submit(); 
   }
 });
 
 var chooseFile = new eleccionesLimpias.ChooseFile();
 chooseFile.render();
+
